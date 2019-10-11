@@ -38,12 +38,12 @@
           <h2 class="ftco-heading-2">Get in touch now!</h2>
           <div class="block-23 mb-3">
             <ul>
-              <li><span class="icon icon-map-marker"></span><span class="text">
+              {{-- <li><span class="icon icon-map-marker"></span><span class="text">
                   Done-Right Systems Inc. <br>
                   Flat 18B Afikpo Housing Estate,<br>
                   Afikpo North L.G.A., Ebonyi State.
-                </span></li>
-              <li><a href="#"><span class="icon icon-phone"></span><span class="text">+234 803-888-3919</span></a></li>
+                </span></li> --}}
+              <li><a href="#"><span class="icon icon-phone"></span><span class="text">+234 806-249-4313</span></a></li>
               <li><a href="#"><span class="icon icon-envelope"></span><span
                     class="text">services@artisanshub.org</span></a>
               </li>
@@ -57,12 +57,12 @@
         <p>
           Copyright &copy;<script>
             document.write(new Date().getFullYear());
-          </script> All rights reserved | ekemarketonline.com
+          </script> All rights reserved | artisanshub.org
         </p>
 
       </div>
       <div class="col-md-6 text-right">
-        <i>Powered by Done-Right Systems Inc.</i>
+        {{-- <i>Powered by Done-Right Systems Inc.</i> --}}
       </div>
     </div>
   </div>

@@ -4,14 +4,14 @@
       <div class="col-lg-12 d-block">
         <div class="row d-flex">
           <div class="col-md pr-4 d-flex topper align-items-center">
-            <div class="icon mr-2 d-flex justify-content-center align-items-center"><span class="icon-phone2"></span>
-            </div>
-            <span class="text">{{$phone}}</span>
+            {{-- <div class="icon mr-2 d-flex justify-content-center align-items-center"><span class="icon-phone2"></span> --}}
+            {{-- </div> --}}
+            {{-- <span class="text">{{$phone}}</span> --}}
           </div>
           <div class="col-md pr-4 d-flex topper align-items-center">
-            <div class="icon mr-2 d-flex justify-content-center align-items-center"><span class="icon-envelope"></span>
-            </div>
-            <span class="text">services@artisanshub.org</span>
+            {{-- <div class="icon mr-2 d-flex justify-content-center align-items-center"><span class="icon-envelope"></span> --}}
+            {{-- </div> --}}
+            {{-- <span class="text">services@artisanshub.org</span> --}}
           </div>
           <div class="col-md-5 pr-4 d-flex topper align-items-center text-lg-right">
             <span class="text">
