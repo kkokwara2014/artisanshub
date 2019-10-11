@@ -1,16 +1,17 @@
 @extends('frontend.layout.main')
 
 @section('content')
-<div class="hero-wrap hero-bread" style="background-image: url({{asset('bootstrap_assets/images/ekemarketpages.jpg')}});">
-    <div class="container">
-        <div class="row no-gutters slider-text align-items-center justify-content-center">
-            <div class="col-md-9 ftco-animate text-center">
-                <p class="breadcrumbs"><span class="mr-2"><a href="{{route('index')}}">Home</a></span> <span>Register</span></p>
-                <h1 class="mb-0 bread">Register</h1>
-            </div>
+{{-- <div class="hero-wrap hero-bread" style="background-image: url({{asset('bootstrap_assets/images/ekemarketpages.jpg')}});">
+<div class="container">
+    <div class="row no-gutters slider-text align-items-center justify-content-center">
+        <div class="col-md-9 ftco-animate text-center">
+            <p class="breadcrumbs"><span class="mr-2"><a href="{{route('index')}}">Home</a></span> <span>Sign
+                    Up</span></p>
+            <h1 class="mb-0 bread">Sign Up</h1>
         </div>
     </div>
 </div>
+</div> --}}
 
 <section class="ftco-section contact-section bg-light">
     <div class="container">
@@ -18,6 +19,7 @@
         <div class="row">
             <div class="col-md-3"></div>
             <div class="col-md-6">
+                    <h2 class="mb-4" style="text-align: center">Register</h2>
                 {{-- for messages --}}
                 @if (session('success'))
                 <p class="alert alert-success">{{ session('success') }}</p>
@@ -64,7 +66,7 @@
                     <div class="form-group">
                         <input id="phone" type="tel"
                             class="form-control{{ $errors->has('phone') ? ' is-invalid' : '' }}" name="phone"
-                            value="{{ old('phone') }}" required placeholder="Phone" maxlength="14">
+                            value="{{ old('phone') }}" required placeholder="Phone" maxlength="11">
 
                         @if ($errors->has('phone'))
                         <span class="invalid-feedback" role="alert">
@@ -89,8 +91,8 @@
                             required placeholder="Repeat Password">
                     </div>
 
-                    <input type="hidden" name="role_id" value="2">
-                    <input type="hidden" name="isactive" value="0">
+                    <input type="hidden" name="role_id" value="3">
+                    <input type="hidden" name="isactive" value="1">
 
                     {{-- <div class="form-group">
                         <div style="color:green" class="form-check">
@@ -104,7 +106,7 @@
         </div> --}}
 
         <div class="form-group">
-            <input type="submit" value="Sign Up" class="btn btn-primary py-3 px-5">
+            <input type="submit" value="Register" class="btn btn-primary py-3 px-5">
         </div>
         <div>
             <a class="btn btn-link" href="{{ route('login') }}" style="color:green">

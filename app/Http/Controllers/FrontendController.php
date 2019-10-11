@@ -13,7 +13,14 @@ class FrontendController extends Controller
      */
     public function index()
     {
-        //
+        // $categories=Category::orderBy('name','asc')->get();
+        // $products=Product::orderBy('created_at','desc')->paginate(90);
+        $data=array(
+            'phone'=>'+ 234 813 888 3919',
+            'email'=>'services@ekemarketonline.com',
+            'address'=>'Amangbala Afikpo North Local Government Area'
+        );
+        return view('frontend.index')->with($data);
     }
 
     /**
@@ -81,4 +88,63 @@ class FrontendController extends Controller
     {
         //
     }
+
+    public function about()
+    {
+        // $categories=Category::orderBy('name','asc')->get();
+        $data=array(
+            'phone'=>'+ 234 813 888 3919',
+            'email'=>'services@ekemarketonline.com',
+            'address'=>'Amangbala Afikpo North Local Government Area'
+        );
+        return view('frontend.about')->with($data);
+    }
+    
+    public function contact()
+    {
+        $categories=Category::orderBy('name','asc')->get();
+        $data=array(
+            'phone'=>'+ 234 813 888 3919',
+            'email'=>'services@ekemarketonline.com',
+            'address'=>'Amangbala Afikpo North Local Government Area'
+        );
+        return view('frontend.contact',compact('categories'))->with($data);
+    }
+
+    
+    public function shop()
+    {
+        $data=array(
+            'phone'=>'+ 234 813 888 3919',
+            'email'=>'services@ekemarketonline.com',
+            'address'=>'Amangbala Afikpo North Local Government Area'
+        );
+        return view('frontend.shop')->with($data);
+    }
+   
+    public function productSingle($id)
+    {
+        $data=array(
+            'phone'=>'+ 234 813 888 3919',
+            'email'=>'services@ekemarketonline.com',
+            'address'=>'Amangbala Afikpo North Local Government Area'
+        );
+        // $categories=Category::orderBy('name','asc')->get();
+        // $products=Product::find($id);
+        return view('frontend.product')->with($data);
+    }
+    public function showprodbycategory($id)
+    {
+        $data=array(
+            'phone'=>'+ 234 813 888 3919',
+            'email'=>'services@ekemarketonline.com',
+            'address'=>'Amangbala Afikpo North Local Government Area'
+        );
+        // $categories=Category::orderBy('name','asc')->get();
+        // $products=Category::find($id)->products;
+        
+        return view('frontend.productsbycategory')->with($data);
+    }
+    
+    
 }
