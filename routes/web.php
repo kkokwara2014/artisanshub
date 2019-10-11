@@ -25,7 +25,6 @@ Route::post('/search/product', 'SearchController@searchproduct')->name('search.p
 Route::group(['prefix' => 'dashboard', 'middleware' => 'auth'], function () {
     Route::get('/', 'AdminController@index')->name('dashboard.index');
 
-
     Route::resource('comment', 'CommentController');
     Route::resource('category', 'CategoryController');
     Route::resource('skill', 'SkillController');
