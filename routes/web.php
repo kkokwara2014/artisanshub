@@ -15,6 +15,16 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+
+Route::group(['prefix' => 'dashboard', 'middleware' => 'auth'], function () {
+    Route::get('/', 'AdminController@index')->name('dashboard.index');
+
+
+    Route::resource('comment', 'CommentController');
+    Route::resource('category', 'CategoryController');
+    Route::resource('skill', 'SkillController');
+});
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
