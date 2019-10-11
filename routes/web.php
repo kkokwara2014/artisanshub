@@ -11,9 +11,15 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
+Route::get('/', 'FrontController@index')->name('index');
+Route::get('/about', 'FrontController@about')->name('about');
+Route::get('/product/{id}/show', 'FrontController@productSingle')->name('frontend.product.show');
+Route::get('/category/{id}/show', 'FrontController@showprodbycategory')->name('frontend.category.show');
+
+Route::post('/search/product', 'SearchController@searchproduct')->name('search.product');
 
 
 Route::group(['prefix' => 'dashboard', 'middleware' => 'auth'], function () {
