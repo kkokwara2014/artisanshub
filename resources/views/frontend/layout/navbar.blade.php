@@ -11,7 +11,7 @@
           <div class="col-md pr-4 d-flex topper align-items-center">
             <div class="icon mr-2 d-flex justify-content-center align-items-center"><span class="icon-envelope"></span>
             </div>
-            <span class="text">services@ekemarketonline.com</span>
+            <span class="text">services@artisanshub.org</span>
           </div>
           <div class="col-md-5 pr-4 d-flex topper align-items-center text-lg-right">
             <span class="text">
@@ -29,7 +29,7 @@
     <a class="navbar-brand" href="{{ route('index') }}">
       <img style="margin-top: -5px" src="{{url('bootstrap_assets/images/','ekm_logo.png')}}" alt="logo" width="20px"
         height="20px">
-      EkeMarketOnline
+      Artisanshub
     </a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav"
       aria-expanded="false" aria-label="Toggle navigation">
@@ -45,7 +45,7 @@
             {{ csrf_field() }}
             <div class="form-group d-flex">
               <input type="text" name="productname" value="{{old('productname')}}" class="form-control-sm"
-                placeholder="Enter Product name">
+                placeholder="Enter Skill Category">
               <input type="submit" value="Search" class="submit px-2">
             </div>
           </form>
@@ -61,26 +61,28 @@
 
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" id="dropdown04" data-toggle="dropdown" aria-haspopup="true"
-            aria-expanded="false">Shop</a>
+            aria-expanded="false">Skill Category</a>
           <div class="dropdown-menu" aria-labelledby="dropdown04">
 
             <div class="row">
-              @forelse ($categories->chunk(3) as $chunk)
-              @foreach ($chunk as $category)
-              <div class="col-md-4">
-                <a class="dropdown-item" href="{{ route('frontend.category.show',$category->id) }}">
-                  <h6>{{$category->name}}</h6>
-                </a>
-              </div>
-              @endforeach
-              @empty
-              <p class="alert alert-info">No Category has been added!</p>
-              @endforelse
+              {{-- @forelse ($categories->chunk(3) as $chunk) --}}
+              {{-- @foreach ($chunk as $category) --}}
+              {{-- <div class="col-md-4"> --}}
+                {{-- <a class="dropdown-item" href="{{ route('frontend.category.show',$category->id) }}"> --}}
+                  {{-- <h6>{{$category->name}}</h6> --}}
+                {{-- </a> --}}
+              {{-- </div> --}}
+              {{-- @endforeach --}}
+              {{-- @empty --}}
+              {{-- <p class="alert alert-info">No Category has been added!</p> --}}
+              {{-- @endforelse --}}
             </div>
           </div>
         </li>
-        <li class="nav-item"><a href="{{ route('about') }}" class="nav-link">About</a></li>
-        <li class="nav-item"><a href="{{ route('contact.create') }}" class="nav-link">Contact</a></li>
+        
+        
+  
+        <li class="nav-item"><a href="#" class="nav-link">Contact</a></li>
         <li class="nav-item"><a href="{{ route('login') }}" class="nav-link">Login</a></li>
         <li class="nav-item"><a href="{{ route('register') }}" class="nav-link">Register</a></li>
 

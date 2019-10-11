@@ -10,11 +10,9 @@
     <div class="row mb-5">
       <div class="col-md">
         <div class="ftco-footer-widget mb-3">
-          <h2 class="ftco-heading-2">Ekemarketonline</h2>
+          <h2 class="ftco-heading-2">Artisanshub</h2>
           <p style="text-align: justify">
-            Eke is a major market day in many parts of Igbo land in Nigeria. In a bid to bring buying and selling to a
-            digital perspective, Done-Right Systems Incorporated decided to bring the market activities to a click away
-            from your mobile devices and computer related gadgets.
+            Artisanshub is a platform that connects qualified artisans to various customers.
           </p>
           {{-- <ul class="ftco-footer-social list-unstyled float-md-left float-lft mt-5">
             <li class="ftco-animate"><a href="#"><span class="icon-twitter"></span></a></li>
@@ -29,8 +27,8 @@
           <ul class="list-unstyled">
             <li><a href="{{ route('index') }}" class="py-2 d-block"><span class="ion-ios-home"
                   style="font-size: 13px;"></span></a></li>
-            <li><a href="{{ route('about') }}" class="py-2 d-block">About</a></li>
-            <li><a href="{{ route('contact.create') }}" class="py-2 d-block">Contact Us</a></li>
+            {{-- <li><a href="{{ route('about') }}" class="py-2 d-block">About</a></li> --}}
+            {{-- <li><a href="{{ route('contact.create') }}" class="py-2 d-block">Contact Us</a></li> --}}
           </ul>
         </div>
       </div>
@@ -47,7 +45,7 @@
                 </span></li>
               <li><a href="#"><span class="icon icon-phone"></span><span class="text">+234 803-888-3919</span></a></li>
               <li><a href="#"><span class="icon icon-envelope"></span><span
-                    class="text">services@ekemarketonline.com</span></a>
+                    class="text">services@artisanshub.org</span></a>
               </li>
             </ul>
           </div>

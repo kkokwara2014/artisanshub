@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title> @yield('title','Eke Market Online')</title>
-<link rel="shortcut icon" type="image/png" href="{{url('bootstrap_assets/images/','ekm_logo.png')}}"/>
+    <title> @yield('title','Artisans Hub')</title>
+<link rel="shortcut icon" type="image/png" href="{{url('bootstrap_assets/images/','artisans_logo.png')}}"/>
     
 
     <meta charset="utf-8">
