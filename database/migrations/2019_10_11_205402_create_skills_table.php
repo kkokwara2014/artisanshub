@@ -15,6 +15,11 @@ class CreateSkillsTable extends Migration
     {
         Schema::create('skills', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->text('businessname');
+            $table->text('businessaddress');
+            $table->text('city');
+            $table->integer('user_id');
+            $table->integer('category_id');
             $table->timestamps();
         });
     }
