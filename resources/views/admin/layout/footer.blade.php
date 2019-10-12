@@ -2,7 +2,7 @@
   <div class="pull-right hidden-xs">
     Powered by Done-Right Systems Inc.
   </div>
-  <strong>Copyright &copy; 2019 eaprojsupervision</strong> All rights
+  <strong>Copyright &copy; 2019 artisanshub</strong> All rights
   reserved.
 </footer>
 

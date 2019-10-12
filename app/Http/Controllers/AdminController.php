@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\User;
 use Illuminate\Http\Request;
 
 use Auth;
@@ -18,6 +19,35 @@ class AdminController extends Controller
         $user = Auth::user();
 
         return view('admin.index', compact('user'));
+    }
+
+    public function admins()
+    {
+        $user = Auth::user();
+        $admins = User::where('role_id', '1')->orderBy('created_at', 'desc')->get();
+        $departments = Department::orderBy('name', 'asc')->get();
+
+        return view('admin.admins.index', compact('user', 'admins', 'departments'));
+    }
+
+    public function activate($id)
+    {
+            $admin = User::find($id);
+            $admin->isactive = '1';
+            $admin->save();
+    
+            return redirect(route('admin.admins'));
+        
+    }
+    public function deactivate($id)
+    {
+        
+            $admin = User::find($id);
+            $admin->isactive = '0';
+            $admin->save();
+    
+            return redirect(route('admin.admins'));
+        
     }
 
     /**
@@ -38,7 +68,26 @@ class AdminController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request, [
+            'lastname' => 'required|string',
+            'firstname' => 'required|string',
+            'email' => 'required|email|unique:users',
+            'phone' => 'required',
+            'password' => 'required|string|min:6|confirmed',
+        ]);
+
+        $user = new User;
+        $user->lastname = $request->lastname;
+        $user->firstname = $request->firstname;
+        $user->email = $request->email;
+        $user->phone = $request->phone;
+        $user->password = bcrypt($request->password);
+        $user->role_id = $request->role_id;
+        $user->isactive = $request->isactive;
+
+        $user->save();
+
+        return back();
     }
 
     /**
@@ -49,7 +98,8 @@ class AdminController extends Controller
      */
     public function show($id)
     {
-        //
+        $admin = User::find($id);
+        return view('admin.admins.show', array('user' => Auth::user()), compact('admin'));
     }
 
     /**

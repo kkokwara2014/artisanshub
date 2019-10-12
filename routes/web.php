@@ -30,7 +30,8 @@ Route::post('password/reset', 'Auth\ResetPasswordController@reset');
 Route::get('register', 'Auth\RegisterController@showRegistrationForm')->name('register');
 Route::post('register', 'Auth\RegisterController@register');
 
-Route::get('/logout', 'Auth\LoginController@userLogout')->name('user.logout');
+// Route::get('/logout', 'Auth\LoginController@userLogout')->name('user.logout');
+Route::post('/logout', 'Auth\LoginController@userLogout')->name('user.logout');
 
 
 Route::get('/', 'FrontController@index')->name('index');
@@ -49,8 +50,13 @@ Route::group(['prefix' => 'dashboard', 'middleware' => 'auth'], function () {
     Route::resource('skill', 'SkillController');
 
 
-    Route::get('user/profile','UserController@profileimage')->name('user.profile');
-    Route::post('user/profile','UserController@updateprofileimage')->name('user.profile.update');
+    Route::resource('/admin', 'AdminController');
+    Route::get('/admins', 'AdminController@admins')->name('admin.admins');
+    Route::post('admins/{id}/activate', 'AdminController@activate')->name('admin.activate');
+    Route::post('admins/{id}/deactivate', 'AdminController@deactivate')->name('admin.deactivate');
+
+    Route::get('user/profile', 'UserController@profileimage')->name('user.profile');
+    Route::post('user/profile', 'UserController@updateprofileimage')->name('user.profile.update');
 });
 
 // Auth::routes();

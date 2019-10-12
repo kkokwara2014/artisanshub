@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Artisans Hub | Dashboard</title>
 
-    <link rel="shortcut icon" type="image/png" href="{{url('admin_assets/dist/img/','projlogo.png')}}" />
+    <link rel="shortcut icon" type="image/png" href="{{url('bootstrap_assets/images/','artisans_logo.png')}}"/>
 
     <!-- Tell the browser to be responsive to screen width -->
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
