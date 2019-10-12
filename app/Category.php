@@ -9,6 +9,6 @@ class Category extends Model
     protected $fillable=['name'];
 
     public function skills(){
-        $this->hasMany(Skill::class);
+       return $this->hasMany(Skill::class);
     }
 }

@@ -11,9 +11,13 @@ class Skill extends Model
     ];
 
     public function category(){
-        $this->belongsTo(Category::class);
+       return $this->belongsTo(Category::class);
     }
     public function user(){
-        $this->belongsTo(User::class);
+       return $this->belongsTo(User::class);
+    }
+
+    public function contacts(){
+       return $this->hasMany(Contact::class);
     }
 }
