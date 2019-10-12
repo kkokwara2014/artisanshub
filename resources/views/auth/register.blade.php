@@ -90,7 +90,7 @@
                     </div>
 
                     <input type="hidden" name="role_id" value="2">
-                    <input type="hidden" name="isactive" value="0">
+                    <input type="hidden" name="isactive" value="1">
 
                     {{-- <div class="form-group">
                         <div style="color:green" class="form-check">

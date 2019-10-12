@@ -30,35 +30,11 @@
       <li><a href="{{route('user.profile')}}"><i class="fa fa-picture-o"></i> My Profile</a></li>
       <li><a href="{{route('comment.index')}}"><i class="fa fa-comment-o"></i> Comments</a></li>
 
-      {{-- only for the Admin and Project Coordinator --}}
-      @if (Auth::user()->role->id==1||Auth::user()->role->id==2)
-      <li><a href="{{route('department.index')}}"><i class="fa fa-university"></i> Department</a></li>
-      <li><a href="{{route('classlevel.index')}}"><i class="fa fa-th"></i> Class Level</a></li>
-      @endif
-
-      @if (Auth::user()->role->id==4||Auth::user()->role->id==1||Auth::user()->role->id==2)
-
-      <li><a href="{{route('student.index')}}"><i class="fa fa-users"></i> Students</a></li>
-
-      <li><a href="{{route('project.index')}}"><i class="fa fa-file-text-o"></i> Unallocated Projects</a></li>
-
-
-      {{-- Only Admin and Project Coordinator --}}
-      {{-- @if (Auth::user()->role->id==1||Auth::user()->role->id==2) --}}
-      <li><a href="{{route('project.allocated')}}"><i class="fa fa-exchange"></i> Allocated Projects</a></li>
-      {{-- @endif --}}
-      @endif
+      
 
 
 
-      {{-- Only Admin, Project Coordinator and Supervisor --}}
-      @if (Auth::user()->role->id==1 || Auth::user()->role->id==2||Auth::user()->role->id==3)
-      <li><a href="{{route('supervisor.index')}}"><i class="fa fa-graduation-cap"></i> Supervisors</a></li>
-      @endif
-      {{-- Only Admin and Project Coordinator --}}
-      @if (Auth::user()->role->id==1 || Auth::user()->role->id==2)
-      <li><a href="{{route('projectcoordinator.index')}}"><i class="fa fa-user"></i> Project Coordinators</a></li>
-      @endif
+
 
       {{-- Only for Admin --}}
       @if (Auth::user()->role->id==1)

@@ -73,13 +73,13 @@ class RegisterController extends Controller
 
     public function showRegistrationForm()
     {
-        $categories = Category::orderBy('name', 'asc')->get();
+        // $categories = Category::orderBy('name', 'asc')->get();
         $data = array(
             'phone' => '+ 234 813 888 3919',
             'email' => 'services@ekemarketonline.com',
             'address' => 'Amangbala Afikpo North Local Government Area'
         );
-        return view('auth.register', compact('categories'))->with($data);
+        return view('auth.register')->with($data);
     }
 
     public function register(Request $request)
@@ -104,6 +104,6 @@ class RegisterController extends Controller
 
         $user->save();
 
-        return redirect(route('login'))->with('success', 'Your account has been created and will be activated shortly!');
+        return redirect(route('login'))->with('success', 'Your account has been created successfully!');
     }
 }
