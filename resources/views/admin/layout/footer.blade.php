@@ -206,6 +206,9 @@
 <script src="{{asset('admin_assets/bower_components/jquery/dist/jquery.min.js')}}"></script>
 <!-- Bootstrap 3.3.7 -->
 <script src="{{asset('admin_assets/bower_components/bootstrap/dist/js/bootstrap.min.js')}}"></script>
+<!-- DataTables -->
+<script src="{{asset('admin_assets/bower_components/datatables.net/js/jquery.dataTables.min.js')}}"></script>
+<script src="{{asset('admin_assets/bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js')}}"></script>
 <!-- Select2 -->
 <script src="{{asset('admin_assets/bower_components/select2/dist/js/select2.full.min.js')}}"></script>
 <!-- InputMask -->
@@ -216,9 +219,11 @@
 <script src="{{asset('admin_assets/bower_components/moment/min/moment.min.js')}}"></script>
 <script src="{{asset('admin_assets/bower_components/bootstrap-daterangepicker/daterangepicker.js')}}"></script>
 <!-- bootstrap datepicker -->
-<script src="{{asset('admin_assets/bower_components/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js')}}"></script>
+<script src="{{asset('admin_assets/bower_components/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js')}}">
+</script>
 <!-- bootstrap color picker -->
-<script src="{{asset('admin_assets/bower_components/bootstrap-colorpicker/dist/js/bootstrap-colorpicker.min.js')}}"></script>
+<script src="{{asset('admin_assets/bower_components/bootstrap-colorpicker/dist/js/bootstrap-colorpicker.min.js')}}">
+</script>
 <!-- bootstrap time picker -->
 <script src="{{asset('admin_assets/plugins/timepicker/bootstrap-timepicker.min.js')}}"></script>
 <!-- SlimScroll -->
@@ -239,6 +244,10 @@
 <!-- Page script -->
 <script>
   $(function () {
+    //DataTable
+    $('#example1').DataTable({
+        'sort':false,
+      })
     //Initialize Select2 Elements
     $('.select2').select2()
 

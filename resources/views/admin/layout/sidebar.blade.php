@@ -27,14 +27,12 @@
 
       </li>
 
+      @if (Auth::user()->role->id==1)
+      <li><a href="{{ route('category.index') }}"><i class="fa fa-th"></i> Category</a></li>
+      @endif
+
       <li><a href="{{route('user.profile')}}"><i class="fa fa-picture-o"></i> My Profile</a></li>
       <li><a href="{{route('comment.index')}}"><i class="fa fa-comment-o"></i> Comments</a></li>
-
-      
-
-
-
-
 
       {{-- Only for Admin --}}
       @if (Auth::user()->role->id==1)

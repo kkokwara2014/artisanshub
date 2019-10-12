@@ -2,10 +2,18 @@
 
 namespace App\Http\Controllers;
 
+use App\Category;
+use Auth;
 use Illuminate\Http\Request;
 
 class CategoryController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware('admin');
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -13,7 +21,8 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        //
+        $categories = Category::orderBy('name', 'asc')->get();
+        return view('admin.category.index', array('user' => Auth::user()), compact('categories'));
     }
 
     /**
@@ -34,7 +43,13 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request, [
+            'name' => 'required|string'
+        ]);
+
+        Category::create($request->all());
+
+        return back();
     }
 
     /**
@@ -44,8 +59,8 @@ class CategoryController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function show($id)
-    {
-        //
+    { 
+
     }
 
     /**
@@ -56,7 +71,8 @@ class CategoryController extends Controller
      */
     public function edit($id)
     {
-        //
+        $categories = Category::where('id', $id)->first();;
+        return view('admin.category.edit', array('user' => Auth::user()), compact('categories'));
     }
 
     /**
@@ -68,7 +84,16 @@ class CategoryController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $this->validate($request, [
+            'name' => 'required|string',
+        ]);
+
+        $category = Category::find($id);
+        $category->name = $request->name;
+
+        $category->save();
+
+        return redirect(route('category.index'));
     }
 
     /**
@@ -79,6 +104,7 @@ class CategoryController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $categories = Category::where('id', $id)->delete();
+        return redirect()->back();
     }
 }

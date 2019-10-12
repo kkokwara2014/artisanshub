@@ -45,13 +45,13 @@
                             </div>
                             <div class="col-md-6">
                                 <div>
-                                    <h3>{{$user->title.' '.strtoupper($user->lastname).', '.$user->firstname}}</h3>
+                                    <h3>{{strtoupper($user->lastname).', '.$user->firstname}}</h3>
                                 </div>
-                                <div>Identity Number: {{$user->identitynumber}}</div>
-                                <div>Gender: {{$user->gender}}</div>
+                               
+                                {{-- <div>Gender: {{$user->gender}}</div> --}}
                                 <div>Email: {{$user->email}}</div>
                                 <div>Phone: {{$user->phone}}</div>
-                                <div>Department: {{$user->department->name.' - '.$user->department->code}}</div>
+                                {{-- <div>Department: {{$user->department->name.' - '.$user->department->code}}</div> --}}
                                 <div>Created: {{$user->created_at->diffForHumans()}}</div>
                             </div>
                         </div>
