@@ -64,28 +64,26 @@
 
                                     </div>
                                     <div class="col-md-2">
-                                            <form id="contactartisan-form-{{$skill->id}}" style="display: none"
-                                                    action="{{ route('contact.store') }}"
-                                                    method="post">
-                                                    {{ csrf_field() }}
-                                                    <input type="hidden" name="skill_id" value="{{$skill->id}}">
-                                                    <input type="hidden" name="user_id" value="{{auth::user()->id}}">
-                                                </form>
-                                                <a href="" onclick="
+                                        <form id="contactartisan-form-{{$skill->id}}" style="display: none"
+                                            action="{{ route('contact.store') }}" method="post">
+                                            {{ csrf_field() }}
+                                            <input type="hidden" name="skill_id" value="{{$skill->id}}">
+                                            <input type="hidden" name="user_id" value="{{auth::user()->id}}">
+                                        </form>
+                                        <a href="" onclick="
                                                             if (confirm('Are you sure you want to contact this Artisan?')) {
                                                                 event.preventDefault();
                                                             document.getElementById('contactartisan-form-{{$skill->id}}').submit();
                                                             } else {
                                                                 event.preventDefault();
                                                             }
-                                                        "><span class="fa fa-envelope text-success"> Get in touch</span>
-                                                </a>
-                                        
+                                                        "><span class="fa fa-envelope text-primary"> Get in
+                                                touch</span>
+                                        </a>
+                                        <br>
 
-                                        {{-- <a href="" style="background-color:green" class="badge badge-success"
-                                            data-toggle="modal" data-target="#modal-default">
-                                            Invite Artisan
-                                        </a> --}}
+                                        <a style="color:green" href="https://paystack.com/pay/pay-artisan" target="_blank"> <span
+                                                class="fa fa-money text-success"></span> Make Payment</a>
                                     </div>
                                 </div>
                             </div>
