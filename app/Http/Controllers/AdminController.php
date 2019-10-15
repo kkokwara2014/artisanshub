@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Contact;
 use App\User;
 use Illuminate\Http\Request;
 
@@ -18,7 +19,12 @@ class AdminController extends Controller
     {
         $user = Auth::user();
 
-        return view('admin.index', compact('user'));
+        $admins=User::where('role_id','1')->count();
+        $artisan=User::where('role_id','2')->count();
+        $customers=User::where('role_id','3')->count();
+        $transactions=Contact::count();
+
+        return view('admin.index', compact('user','admins','artisans','customers','transactions'));
     }
 
     public function admins()
