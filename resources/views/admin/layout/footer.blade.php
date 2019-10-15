@@ -1,7 +1,7 @@
 <footer class="main-footer">
   <div class="pull-right hidden-xs">
-    Powered by Done-Right Systems Inc.
-  </div>
+    Powered by Ogbunude Festus - 2017/MSc/029
+   </div>
   <strong>Copyright &copy; 2019 artisanshub</strong> All rights
   reserved.
 </footer>
