@@ -20,7 +20,7 @@ class AdminController extends Controller
         $user = Auth::user();
 
         $admins=User::where('role_id','1')->count();
-        $artisan=User::where('role_id','2')->count();
+        $artisans=User::where('role_id','2')->count();
         $customers=User::where('role_id','3')->count();
         $transactions=Contact::count();
 
