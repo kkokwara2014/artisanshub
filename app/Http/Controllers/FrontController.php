@@ -2,6 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Category;
+use App\Comment;
+use App\Skill;
+use Auth;
 use Illuminate\Http\Request;
 
 class FrontController extends Controller
@@ -13,14 +17,18 @@ class FrontController extends Controller
      */
     public function index()
     {
-        // $categories=Category::orderBy('name','asc')->get();
-        // $products=Product::orderBy('created_at','desc')->paginate(90);
+        $categories = Category::orderBy('name', 'asc')->get();
+        $skills = Skill::orderBy('created_at', 'desc')->paginate(50);
+
+        $comments = Comment::orderBy('created_at', 'desc')->get();
+        
+        
         $data=array(
             'phone'=>'+ 234 813 888 3919',
             'email'=>'services@ekemarketonline.com',
             'address'=>'Amangbala Afikpo North Local Government Area'
         );
-        return view('frontend.index')->with($data);
+        return view('frontend.index',compact('skills','categories','comments'))->with($data);
     }
 
     /**
@@ -91,59 +99,52 @@ class FrontController extends Controller
 
     public function about()
     {
-        // $categories=Category::orderBy('name','asc')->get();
+        $categories=Category::orderBy('name','asc')->get();
+        $comments = Comment::orderBy('created_at', 'desc')->get();
         $data=array(
             'phone'=>'+ 234 813 888 3919',
             'email'=>'services@ekemarketonline.com',
             'address'=>'Amangbala Afikpo North Local Government Area'
         );
-        return view('frontend.about')->with($data);
+        return view('frontend.about',compact('categories','comments'))->with($data);
     }
     
     public function contact()
     {
         $categories=Category::orderBy('name','asc')->get();
+        $comments = Comment::orderBy('created_at', 'desc')->get();
         $data=array(
             'phone'=>'+ 234 813 888 3919',
             'email'=>'services@ekemarketonline.com',
             'address'=>'Amangbala Afikpo North Local Government Area'
         );
-        return view('frontend.contact',compact('categories'))->with($data);
-    }
-
-    
-    public function shop()
-    {
-        $data=array(
-            'phone'=>'+ 234 813 888 3919',
-            'email'=>'services@ekemarketonline.com',
-            'address'=>'Amangbala Afikpo North Local Government Area'
-        );
-        return view('frontend.shop')->with($data);
+        return view('frontend.contact',compact('categories','comments'))->with($data);
     }
    
-    public function productSingle($id)
+    public function skillSingle($id)
     {
         $data=array(
             'phone'=>'+ 234 813 888 3919',
             'email'=>'services@ekemarketonline.com',
             'address'=>'Amangbala Afikpo North Local Government Area'
         );
-        // $categories=Category::orderBy('name','asc')->get();
-        // $products=Product::find($id);
-        return view('frontend.product')->with($data);
+        $categories=Category::orderBy('name','asc')->get();
+        $comments = Comment::orderBy('created_at', 'desc')->get();
+        $skills=Skill::find($id);
+        return view('frontend.skill',compact('categories','skills','comments'))->with($data);
     }
-    public function showprodbycategory($id)
+    public function showskillbycategory($id)
     {
         $data=array(
             'phone'=>'+ 234 813 888 3919',
             'email'=>'services@ekemarketonline.com',
             'address'=>'Amangbala Afikpo North Local Government Area'
         );
-        // $categories=Category::orderBy('name','asc')->get();
-        // $products=Category::find($id)->products;
+        $categories=Category::orderBy('name','asc')->get();
+        $comments = Comment::orderBy('created_at', 'desc')->get();
+        $skills=Category::find($id)->skills;
         
-        return view('frontend.productsbycategory')->with($data);
+        return view('frontend.skillsbycategory',compact('categories','skills','comments'))->with($data);
     }
     
     

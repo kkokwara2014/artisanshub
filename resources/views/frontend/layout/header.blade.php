@@ -21,7 +21,12 @@
 
     <link rel="stylesheet" href="{{asset('bootstrap_assets/css/aos.css')}}">
 
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="{{asset('bootstrap_assets/font-awesome/css/font-awesome.min.css')}}">
+    <!-- Ionicons -->
     <link rel="stylesheet" href="{{asset('bootstrap_assets/css/ionicons.min.css')}}">
+
+
 
     <link rel="stylesheet" href="{{asset('bootstrap_assets/css/bootstrap-datepicker.css')}}">
     <link rel="stylesheet" href="{{asset('bootstrap_assets/css/jquery.timepicker.css')}}">

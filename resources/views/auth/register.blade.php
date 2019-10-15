@@ -1,7 +1,7 @@
 @extends('frontend.layout.main')
 
 @section('content')
-<div class="hero-wrap hero-bread" style="background-image: url({{asset('bootstrap_assets/images/ekemarketpages.jpg')}});">
+<div class="hero-wrap hero-bread" style="background-image: url({{asset('bootstrap_assets/images/artisanspages.jpg')}});">
     <div class="container">
         <div class="row no-gutters slider-text align-items-center justify-content-center">
             <div class="col-md-9 ftco-animate text-center">
@@ -69,6 +69,19 @@
                         @if ($errors->has('phone'))
                         <span class="invalid-feedback" role="alert">
                             <strong>{{ $errors->first('phone') }}</strong>
+                        </span>
+                        @endif
+                    </div>
+                    <div class="form-group">
+                            <select name="gender" id="gender" class="form-control{{ $errors->has('gender') ? ' is-invalid' : '' }}">
+                                <option selected="disabled">Select Gender</option>
+                                <option>Male</option>
+                                <option>Female</option>
+                            </select>
+
+                        @if ($errors->has('gender'))
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $errors->first('gender') }}</strong>
                         </span>
                         @endif
                     </div>

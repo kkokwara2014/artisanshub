@@ -36,18 +36,22 @@ Route::post('/logout', 'Auth\LoginController@userLogout')->name('user.logout');
 
 Route::get('/', 'FrontController@index')->name('index');
 Route::get('/about', 'FrontController@about')->name('about');
-Route::get('/product/{id}/show', 'FrontController@productSingle')->name('frontend.product.show');
-Route::get('/category/{id}/show', 'FrontController@showprodbycategory')->name('frontend.category.show');
+Route::get('/skill/{id}/show', 'FrontController@skillSingle')->name('frontend.skill.show');
+Route::get('/category/{id}/show', 'FrontController@showskillbycategory')->name('frontend.category.show');
 
-Route::post('/search/product', 'SearchController@searchproduct')->name('search.product');
+Route::post('/search/skill', 'SearchController@searchskill')->name('search.skill');
 
 
 Route::group(['prefix' => 'dashboard', 'middleware' => 'auth'], function () {
     Route::get('/', 'AdminController@index')->name('dashboard.index');
 
     Route::resource('comment', 'CommentController');
+    Route::resource('contact', 'ContactController');
     Route::resource('category', 'CategoryController');
     Route::resource('skill', 'SkillController');
+    Route::resource('artisans', 'ArtisanController');
+    Route::resource('customers', 'CustomerController');
+    Route::resource('address', 'AddressController');
 
 
     Route::resource('/admin', 'AdminController');

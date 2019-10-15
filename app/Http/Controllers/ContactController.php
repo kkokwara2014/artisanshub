@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Contact;
 use Illuminate\Http\Request;
+
+use Auth;
 
 class ContactController extends Controller
 {
@@ -13,7 +16,9 @@ class ContactController extends Controller
      */
     public function index()
     {
-        //
+       
+        $contacts = Contact::orderBy('created_at', 'desc')->get();
+        return view('admin.contact.index', array('user' => Auth::user()), compact('contacts'));
     }
 
     /**
@@ -34,7 +39,12 @@ class ContactController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $contact=new Contact;
+        $contact->user_id=$request->user_id;
+        $contact->skill_id=$request->skill_id;
+        $contact->save();
+
+        return back();
     }
 
     /**

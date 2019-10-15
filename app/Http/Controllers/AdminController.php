@@ -73,6 +73,7 @@ class AdminController extends Controller
             'firstname' => 'required|string',
             'email' => 'required|email|unique:users',
             'phone' => 'required',
+            'gender' => 'required',
             'password' => 'required|string|min:6|confirmed',
         ]);
 
@@ -81,9 +82,11 @@ class AdminController extends Controller
         $user->firstname = $request->firstname;
         $user->email = $request->email;
         $user->phone = $request->phone;
+        $user->gender = $request->gender;
         $user->password = bcrypt($request->password);
         $user->role_id = $request->role_id;
         $user->isactive = $request->isactive;
+
 
         $user->save();
 

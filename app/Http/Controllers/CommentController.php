@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Comment;
 use Illuminate\Http\Request;
+use Auth;
 
 class CommentController extends Controller
 {
@@ -13,7 +15,9 @@ class CommentController extends Controller
      */
     public function index()
     {
-        //
+        
+        $comments = Comment::orderBy('created_at', 'desc')->get();
+        return view('admin.comment.index', array('user' => Auth::user()), compact('comments'));
     }
 
     /**
@@ -23,7 +27,9 @@ class CommentController extends Controller
      */
     public function create()
     {
-        //
+        $comments = Comment::orderBy('created_at', 'desc')->get();
+       
+        return view('admin.comment.create', array('user' => Auth::user()), compact('comments'));
     }
 
     /**
@@ -34,7 +40,17 @@ class CommentController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request, [
+            'comment' => 'required|string',
+        ]);
+
+        $comment = new Comment;
+        $comment->comment = $request->comment;
+        $comment->user_id = auth::user()->id;
+        
+        $comment->save();
+
+        return redirect()->back();
     }
 
     /**

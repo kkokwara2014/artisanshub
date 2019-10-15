@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Auth;
 
+use App\Category;
 use App\User;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
@@ -73,13 +74,13 @@ class RegisterController extends Controller
 
     public function showRegistrationForm()
     {
-        // $categories = Category::orderBy('name', 'asc')->get();
+        $categories = Category::orderBy('name', 'asc')->get();
         $data = array(
             'phone' => '+ 234 813 888 3919',
             'email' => 'services@ekemarketonline.com',
             'address' => 'Amangbala Afikpo North Local Government Area'
         );
-        return view('auth.register')->with($data);
+        return view('auth.register',compact('categories'))->with($data);
     }
 
     public function register(Request $request)
@@ -90,6 +91,7 @@ class RegisterController extends Controller
             'firstname' => 'required|string',
             'email' => 'required|email|unique:users',
             'phone' => 'required',
+            'gender' => 'required',
             'password' => 'required|string|min:6|confirmed',
         ]);
 
@@ -98,6 +100,7 @@ class RegisterController extends Controller
         $user->firstname = $request->firstname;
         $user->email = $request->email;
         $user->phone = $request->phone;
+        $user->gender = $request->gender;
         $user->password = bcrypt($request->password);
         $user->role_id = $request->role_id;
         $user->isactive = $request->isactive;

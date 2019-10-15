@@ -4,13 +4,12 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Auth;
+use Image;
 
 class UserController extends Controller
 {
     public function profileimage()
     {
-
-
         return view('admin.user.profile', array('user' => Auth::user()));
     }
 

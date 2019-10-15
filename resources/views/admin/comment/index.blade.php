@@ -34,24 +34,11 @@
                             <!-- /.box-header -->
                             <div class="box-body">
                                 <div class="row">
-                                    <div class="col-md-12" style="overflow-y: auto; height: 500px;">
-
-                                        {{-- @foreach ($project_supervisor as $projsup)
-
-                                        @if ($projsup->user->id)
-                                        @foreach ($project as $proj)
-                                        @if ($proj->user->id)
+                                    <div class="col-md-12" style="overflow-y: auto; height: auto;">
 
                                         
-
-
-                                        @endif
-                                        @endforeach
-                                        @endif
-                                        @endforeach --}}
-
-                                        @forelse ($discussions as $comt)
-                                        @if (Auth::user()->id==$comt->user->id||Auth::user()->role->id==1)
+                                        @forelse ($comments as $comt)
+                                        {{-- @if (Auth::user()->id==$comt->user->id||Auth::user()->role->id==1) --}}
 
                                         <div class="panel panel-default">
                                             <div class="panel-body">
@@ -62,23 +49,23 @@
                                                     </div>
                                                     <div class="col-md-10">
                                                         <div style="font-weight: bold">
-                                                            {{$comt->user->lastname.', '.$comt->user->firstname}} says:
+                                                            {{$comt->user->lastname.', '.$comt->user->firstname}} ({{$comt->user->role->name}}) says:
                                                         </div>
                                                         <div>{!! htmlspecialchars_decode($comt->comment) !!}</div>
                                                         <div style="text-align: right">
                                                             <small>Sent : {{$comt->created_at->diffForHumans()}}
                                                                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span
                                                                     class="fa fa-calendar"></span>
-                                                                {{$comt->commentdate}} &nbsp; <span
-                                                                    class="fa fa-clock-o"></span>
-                                                                {{$comt->commenttime}}</small>
+                                                                {{date('F d, Y',strtotime($comt->created_at))}} &nbsp;
+                                                                <span class="fa fa-clock-o"></span>
+                                                                {{date('H:i:s',strtotime($comt->created_at))}}</small>
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
 
-                                        @endif
+                                        {{-- @endif --}}
                                         @empty
                                         <li class="list-group-item alert alert-warning"><strong>No Comments
                                                 yet!</strong>

@@ -32,7 +32,24 @@
       @endif
 
       <li><a href="{{route('user.profile')}}"><i class="fa fa-picture-o"></i> My Profile</a></li>
+
+      {{-- for artisans and Admin only --}}
+      @if (Auth::user()->role->id==2||Auth::user()->role->id==1)
+      <li><a href="{{route('skill.index')}}"><i class="fa fa-wrench"></i> Skills</a></li>
+
+      @endif
+      <li><a href="{{route('artisans.index')}}"><i class="fa fa-ge"></i> Artisans</a></li>
+
+      {{-- for Customer and Admin only --}}
+      @if (Auth::user()->role->id==3||Auth::user()->role->id==1)
+      <li><a href="{{route('customers.index')}}"><i class="fa fa-users"></i> Customers</a></li>
+      @endif
       <li><a href="{{route('comment.index')}}"><i class="fa fa-comment-o"></i> Comments</a></li>
+
+      {{-- only for Admin --}}
+      @if (Auth::user()->role->id==1)
+      <li><a href="{{route('contact.index')}}"><i class="fa fa-exchange"></i> Transactions</a></li>
+      @endif
 
       {{-- Only for Admin --}}
       @if (Auth::user()->role->id==1)

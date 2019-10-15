@@ -42,20 +42,9 @@
                                         <form action="{{route('comment.store')}}" method="post">
                                             {{ csrf_field() }}
 
+                                            
                                             <div class="form-group">
-                                                <label for="">Select Chapter <b style="color:red">*</b></label>
-                                                <select name="chapter_id" class="form-control">
-                                                    <option selected="disabled">Select Chapter</option>
-                                                    @foreach ($chapters as $chapt)
-                                                    <option value="{{$chapt->id}}">
-
-                                                        {{$chapt->title}}
-                                                    </option>
-                                                    @endforeach
-                                                </select>
-                                            </div>
-                                            <div class="form-group">
-                                                <textarea id="editor1" class="form-control" rows="1"
+                                                <textarea id="editor1" class="form-control" rows="2"
                                                     name="comment"></textarea>
                                             </div>
                                             <button type="submit" class="btn btn-success btn-sm"><span
@@ -73,10 +62,10 @@
                             <!-- /.box-header -->
                             <div class="box-body">
                                 <div class="row">
-                                    <div style="overflow-y: auto; height: 500px;" class="col-md-12">
-                                        @forelse ($discussions as $comt)
+                                    <div style="overflow-y: auto; height: auto;" class="col-md-12">
+                                        @forelse ($comments as $comt)
 
-                                        @if (Auth::user()->id==$comt->user->id||Auth::user()->role->id==1)
+                                        {{-- @if (Auth::user()->id==$comt->user->id||Auth::user()->role->id==1) --}}
                                         <div class="panel panel-default">
                                             <div class="panel-body">
                                                 <div class="row">
@@ -86,7 +75,7 @@
                                                     </div>
                                                     <div class="col-md-10">
                                                         <div style="font-weight: bold">
-                                                            {{$comt->user->lastname.', '.$comt->user->firstname}} says:
+                                                            {{$comt->user->lastname.', '.$comt->user->firstname}} ({{$comt->user->role->name}}) says:
                                                         </div>
                                                         <div>
                                                             {!! htmlspecialchars_decode($comt->comment) !!}
@@ -95,15 +84,15 @@
                                                             <small>Sent : {{$comt->created_at->diffForHumans()}}
                                                                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span
                                                                     class="fa fa-calendar"></span>
-                                                                {{$comt->commentdate}} &nbsp;
+                                                                {{date('F d, Y',strtotime($comt->created_at))}} &nbsp;
                                                                 <span class="fa fa-clock-o"></span>
-                                                                {{$comt->commenttime}}</small>
+                                                                {{date('H:i:s',strtotime($comt->created_at))}}</small>
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
-                                        @endif
+                                        {{-- @endif --}}
                                         @empty
                                         <li class="list-group-item alert alert-warning"><strong>No Comments
                                                 yet!</strong>

@@ -16,7 +16,7 @@
           <div class="col-md-5 pr-4 d-flex topper align-items-center text-lg-right">
             <span class="text">
               <a href="{{ route('login') }}" class="text">Login</a> | <a href="{{ route('register') }}"
-                class="text">Register</a>
+                class="text">Register Artisan</a>
             </span>
           </div>
         </div>
@@ -27,8 +27,9 @@
 <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
   <div class="container">
     <a class="navbar-brand" href="{{ route('index') }}">
-      <img style="margin-top: -5px" src="{{url('bootstrap_assets/images/','ekm_logo.png')}}" alt="logo" width="20px"
-        height="20px">
+      {{-- <img style="margin-top: -5px" src="{{url('bootstrap_assets/images/','ekm_logo.png')}}" alt="logo"
+      width="20px"
+      height="20px"> --}}
       Artisanshub
     </a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav"
@@ -39,22 +40,22 @@
     <div class="collapse navbar-collapse" id="ftco-nav">
 
       <div class="row">
-        {{-- <div class="col-md-1"></div> --}}
-        <div class="col-md-4">
-          <form action="{{route('search.product')}}" class="subscribe-form" method="POST">
+        <div class="col-md-10">
+          <form action="{{route('search.skill')}}" class="subscribe-form" method="POST">
             {{ csrf_field() }}
             <div class="form-group d-flex">
-              <input type="text" name="productname" value="{{old('productname')}}" class="form-control-sm"
-                placeholder="Enter Skill Category">
+              <input type="text" name="skillname" value="{{old('skillname')}}" class="form-control-sm"
+                placeholder="Enter Location">
               <input type="submit" value="Search" class="submit px-2">
             </div>
           </form>
         </div>
-        <div class="col-md-1"></div>
+
       </div>
 
 
       <ul class="navbar-nav ml-auto">
+
 
         <li class="nav-item active"><a href="{{ route('index') }}" class="nav-link"><span class="ion-ios-home"
               style="font-size: 13px;"></span> </a></li>
@@ -65,26 +66,26 @@
           <div class="dropdown-menu" aria-labelledby="dropdown04">
 
             <div class="row">
-              {{-- @forelse ($categories->chunk(3) as $chunk) --}}
-              {{-- @foreach ($chunk as $category) --}}
-              {{-- <div class="col-md-4"> --}}
-                {{-- <a class="dropdown-item" href="{{ route('frontend.category.show',$category->id) }}"> --}}
-                  {{-- <h6>{{$category->name}}</h6> --}}
-                {{-- </a> --}}
-              {{-- </div> --}}
-              {{-- @endforeach --}}
-              {{-- @empty --}}
-              {{-- <p class="alert alert-info">No Category has been added!</p> --}}
-              {{-- @endforelse --}}
+              @forelse ($categories->chunk(6) as $chunk)
+              @foreach ($chunk as $category)
+              <div class="col-md-6">
+                <a class="dropdown-item" href="{{ route('frontend.category.show',$category->id) }}">
+                  <h6>{{$category->name}}</h6>
+                </a>
+              </div>
+              @endforeach
+              @empty
+              <p class="alert alert-info">No Category has been added!</p>
+              @endforelse
             </div>
           </div>
         </li>
-        
-        
-  
-        <li class="nav-item"><a href="#" class="nav-link">Contact</a></li>
+
+
+
+        {{-- <li class="nav-item"><a href="#" class="nav-link">Contact</a></li> --}}
         <li class="nav-item"><a href="{{ route('login') }}" class="nav-link">Login</a></li>
-        <li class="nav-item"><a href="{{ route('register') }}" class="nav-link">Register</a></li>
+        <li class="nav-item"><a href="{{ route('register') }}" class="nav-link">Register Artisan</a></li>
 
         {{-- <li class="nav-item cta cta-colored"><a href="#" class="nav-link"><span
               class="icon-shopping_cart"></span>[0]</a></li> --}}

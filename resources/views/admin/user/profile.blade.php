@@ -27,15 +27,7 @@
                                     enctype="multipart/form-data">
                                     {{ csrf_field() }}
                                     <br>
-                                    <div class="form-group">
-                                        <select name="title" class="form-control">
-                                            <option selected="disabled">Select Title</option>
-                                            <option>Mr.</option>
-                                            <option>Mrs.</option>
-                                            <option>Engr.</option>
-                                            <option>Dr.</option>
-                                        </select>
-                                    </div>
+                                    
                                     <input type="file" name="userimage">
                                     <p></p>
                                     <button type="submit" class="btn btn-success text-center"><span
@@ -48,10 +40,12 @@
                                     <h3>{{strtoupper($user->lastname).', '.$user->firstname}}</h3>
                                 </div>
                                
-                                {{-- <div>Gender: {{$user->gender}}</div> --}}
+                                <div>Role: <strong>{{$user->role->name}}</strong></div>
+                                <div>Gender: {{$user->gender}}</div>
                                 <div>Email: {{$user->email}}</div>
                                 <div>Phone: {{$user->phone}}</div>
                                 {{-- <div>Department: {{$user->department->name.' - '.$user->department->code}}</div> --}}
+                                <br>
                                 <div>Created: {{$user->created_at->diffForHumans()}}</div>
                             </div>
                         </div>
